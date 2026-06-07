@@ -99,6 +99,18 @@ body {
   margin-bottom: 10px;
 }
 
+.section-title-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.875rem;
+  text-align: left;
+  justify-content: start;
+  position: relative;
+  padding-top: 0.25rem;
+  width: 100%;
+  height: auto;
+}
+
 .section-title h2 {
   margin: 0;
   font-size: 1.35rem;
@@ -146,6 +158,116 @@ img {
   object-position: center center;
 }
 
+.bi bi-github {
+  color: black;
+}
+
+.line-1 {
+  animation:
+    typing-animation 1s steps(8) forwards infinite,
+    cursor-blink 0.5s step-end infinite;
+  animation-duration: 6s;
+}
+
+.line-2 {
+  animation:
+    typing-animation 1.5s steps(21) forwards infinite,
+    cursor-blink 1.2s step-end infinite;
+  animation-duration: 6s;
+  animation-delay: 1.2s;
+}
+
+@keyframes typing-animation {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100%;
+  }
+  90% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.bubble-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background-color: rgba(5, 51, 211, 0.2);
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  animation: floatUp 12s infinite linear;
+}
+
+.bubble:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  animation-duration: 10s;
+}
+
+.bubble:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  left: 30%;
+  animation-duration: 15s;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  left: 55%;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+  width: 150px;
+  height: 150px;
+  left: 75%;
+  animation-duration: 18s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(5) {
+  width: 90px;
+  height: 90px;
+  left: 90%;
+  animation-duration: 12s;
+  animation-delay: 5s;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) translate(50px);
+    opacity: 0;
+  }
+}
+
 @media (max-width: 767px) {
   .resume-card {
     padding: 28px 20px 36px;
@@ -174,6 +296,11 @@ img {
   .intro p,
   .section p {
     font-size: 0.98rem;
+  }
+  .section-title-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
   }
 }
 
@@ -226,5 +353,10 @@ img {
 
   .resume-header h1 {
     font-size: 4.2rem;
+  }
+
+  .section-title-item {
+    text-align: left;
+    margin-top: 0.5rem;
   }
 }
